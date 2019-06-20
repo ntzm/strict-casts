@@ -1,0 +1,22 @@
+{
+    "name": "ntzm/strict-casts",
+    "type": "library",
+    "description": "Strict type casting for super defensive PHP",
+    "license": "MIT",
+    "require-dev": {
+        "phpunit/phpunit": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "StrictCasts\\": "src/"
+        },
+        "files": [
+            "src/functions.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "StrictCastsTests\\": "tests/"
+        }
+    }
+}
