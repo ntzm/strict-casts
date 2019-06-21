@@ -10,9 +10,9 @@ use function StrictCasts\stringToFloat;
 final class StringToFloatTest extends TestCase
 {
     /** @dataProvider provideCastable */
-    public function testCastable(float $expected, string $input): void
+    public function testCastable(float $expected, string $castable): void
     {
-        $this->assertSame($expected, stringToFloat($input));
+        $this->assertSame($expected, stringToFloat($castable));
     }
 
     public function provideCastable(): Generator

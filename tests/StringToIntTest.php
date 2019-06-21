@@ -10,9 +10,9 @@ use function StrictCasts\stringToInt;
 final class StringToIntTest extends TestCase
 {
     /** @dataProvider provideCastable */
-    public function testCastable(int $expected, string $input): void
+    public function testCastable(int $expected, string $castable): void
     {
-        $this->assertSame($expected, stringToInt($input));
+        $this->assertSame($expected, stringToInt($castable));
     }
 
     public function provideCastable(): Generator

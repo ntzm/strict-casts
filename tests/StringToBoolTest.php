@@ -22,11 +22,11 @@ final class StringToBoolTest extends TestCase
     }
 
     /** @dataProvider provideUncastable */
-    public function testUncastable(string $uncastableString): void
+    public function testUncastable(string $uncastable): void
     {
         $this->expectException(Uncastable::class);
 
-        stringToBool($uncastableString);
+        stringToBool($uncastable);
     }
 
     public function provideUncastable(): Generator
