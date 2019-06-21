@@ -28,6 +28,22 @@ function intToBool(int $int): bool {
     throw new Uncastable("Int {$int} cannot be cast to bool");
 }
 
+/**
+ * @param mixed $value
+ * @throws Uncastable
+ */
+function toBool($value): bool {
+    if (is_string($value)) {
+        return stringToBool($value);
+    }
+
+    if (is_int($value)) {
+        return intToBool($value);
+    }
+
+    return (bool) $value;
+}
+
 /** @throws Uncastable */
 function stringToInt(string $string): int {
     if (preg_match('/^-?\d+$/', $string) === 1) {
@@ -37,6 +53,18 @@ function stringToInt(string $string): int {
     throw new Uncastable("String {$string} cannot be cast to int");
 }
 
+/**
+ * @param mixed $value
+ * @throws Uncastable
+ */
+function toInt($value): int {
+    if (is_string($value)) {
+        return stringToInt($value);
+    }
+
+    return (int) $value;
+}
+
 /** @throws Uncastable */
 function stringToFloat(string $string): float {
     if (preg_match('/^-?\d+(\.\d+)?$/', $string) === 1) {
@@ -44,4 +72,16 @@ function stringToFloat(string $string): float {
     }
 
     throw new Uncastable("String {$string} cannot be cast to float");
+}
+
+/**
+ * @param mixed $value
+ * @throws Uncastable
+ */
+function toFloat($value): float {
+    if (is_string($value)) {
+        return stringToFloat($value);
+    }
+
+    return (float) $value;
 }

@@ -5,14 +5,17 @@ namespace StrictCastsTests;
 use Generator;
 use PHPUnit\Framework\TestCase;
 use StrictCasts\Uncastable;
-use function StrictCasts\stringToInt;
+use function StrictCasts\toInt;
 
-final class StringToIntTest extends TestCase
+final class ToIntTest extends TestCase
 {
-    /** @dataProvider provideCastable */
-    public function testCastable(int $expected, string $input): void
+    /**
+     * @param mixed $castable
+     * @dataProvider provideCastable
+     */
+    public function testCastable(int $expected, $castable): void
     {
-        $this->assertSame($expected, stringToInt($input));
+        $this->assertSame($expected, toInt($castable));
     }
 
     public function provideCastable(): Generator
@@ -21,6 +24,11 @@ final class StringToIntTest extends TestCase
         yield [2, '2'];
         yield [-5, '-5'];
         yield [0, '0'];
+        yield [1, 1.2];
+        yield [1, 1.2];
+        yield [1, 1.2];
+        yield [0, []];
+        yield [1, ['hello']];
     }
 
     /** @dataProvider provideUncastable */
@@ -28,7 +36,7 @@ final class StringToIntTest extends TestCase
     {
         $this->expectException(Uncastable::class);
 
-        stringToInt($uncastable);
+        toInt($uncastable);
     }
 
     public function provideUncastable(): Generator

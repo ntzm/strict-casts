@@ -17,6 +17,12 @@ This package provides the following strict casts:
 - `stringToInt`
 - `stringToFloat`
 
+And the following general casts, which work with any input, but use strict casts when they can:
+
+- `toBool`
+- `toInt`
+- `toFloat`
+
 ## Why?
 
 PHP's inbuilt type casting is not strict at all, and will take almost any type and turn it into another, no matter how
