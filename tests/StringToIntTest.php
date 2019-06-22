@@ -21,6 +21,7 @@ final class StringToIntTest extends TestCase
         yield [2, '2'];
         yield [-5, '-5'];
         yield [0, '0'];
+        yield [5, '+5'];
     }
 
     /** @dataProvider provideUncastable */
@@ -38,10 +39,15 @@ final class StringToIntTest extends TestCase
         yield [' 0 '];
         yield ['0 '];
         yield ['--5'];
-        yield ['+5'];
         yield ['99 red balloons'];
         yield ['99,000'];
         yield ['99.99'];
         yield ['-'];
+        yield ['+'];
+        yield ['++5'];
+        yield ['+-5'];
+        yield ['-+5'];
+        yield ['-+'];
+        yield ['+-'];
     }
 }

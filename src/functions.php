@@ -46,7 +46,7 @@ function toBool($value): bool {
 
 /** @throws Uncastable */
 function stringToInt(string $string): int {
-    if (preg_match('/^-?\d+$/', $string) === 1) {
+    if (preg_match('/^[-+]?\d+$/', $string) === 1) {
         return (int) $string;
     }
 
