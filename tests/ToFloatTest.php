@@ -30,6 +30,10 @@ final class ToFloatTest extends TestCase
         yield [5.0, 5];
         yield [0.0, []];
         yield [1.0, ['hello']];
+        yield [0.1, '.1'];
+        yield [1.0, '1.'];
+        yield [1.2e3, '1.2e3'];
+        yield [7E-10, '7E-10'];
     }
 
     /** @dataProvider provideUncastable */
@@ -47,7 +51,7 @@ final class ToFloatTest extends TestCase
         yield [' 1.1 '];
         yield ['1.1 '];
         yield ['1.1.1'];
-        yield ['1.'];
-        yield ['.1'];
+        yield ['0xf4c3b00c'];
+        yield ['0b10100111001'];
     }
 }

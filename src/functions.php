@@ -67,7 +67,8 @@ function toInt($value): int {
 
 /** @throws Uncastable */
 function stringToFloat(string $string): float {
-    if (preg_match('/^-?\d+(\.\d+)?$/', $string) === 1) {
+    // is_numeric allows leading whitespace, but we don't want to allow that
+    if (is_numeric($string) && ! ctype_space($string[0] ?? null)) {
         return (float) $string;
     }
 
