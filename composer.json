@@ -3,6 +3,9 @@
     "type": "library",
     "description": "Strict type casting for super defensive PHP",
     "license": "MIT",
+    "require": {
+        "php": "^7.2"
+    },
     "require-dev": {
         "phpunit/phpunit": "^8.2"
     },
