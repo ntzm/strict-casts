@@ -23,6 +23,8 @@ And the following general casts, which work with any input, but use strict casts
 - `toInt`
 - `toFloat`
 
+All mentioned functions live under the namespace `StrictCasts`. This way, before using them, they have to be imported through the `use function` statement.
+
 ## Why?
 
 PHP's inbuilt type casting is not strict at all, and will take almost any type and turn it into another, no matter how
@@ -41,6 +43,8 @@ By ensuring that the conversion is valid before conversion, we can ensure that t
 expect it to, or it will fail! For example:
 
 ```php
+use function StrictCasts\stringToInt;
+
 stringToInt('123') === 123;
 stringToInt('-123') === -123;
 
